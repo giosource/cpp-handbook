@@ -1,5 +1,6 @@
 #include "../include/Estoque.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -20,6 +21,18 @@ void Estoque::setProdutos(map<int, Produto> v) {
 
 void Estoque::cadastrar_produto(int id, Produto produto) {
     produtos[id] = produto;
+
+    ofstream arquivo("produtos.txt");
+    if (arquivo.is_open()) {
+        for (const auto& par : produtos) {
+            arquivo << par.first << endl;
+            arquivo << par.second.getNome() << endl;
+            arquivo << par.second.getPreco() << endl;
+            arquivo << par.second.getQuantidade() << endl;
+        } 
+        arquivo.close();
+    } else
+        cout << "\nERRO AO ABRIR ARQUIVO";
 };
 void Estoque::listar_estoque() {
     double valor_total = 0;

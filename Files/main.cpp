@@ -11,7 +11,10 @@ int main() {
     Produto produto3("PRODUTO 3", 50.00, 5);
     map<int, Produto> produtos = { {1, produto1}, {2, produto2}, {3, produto3} };
     Estoque estoque(produtos);
-
     estoque.listar_estoque();
+
+    // em arquivo
+    estoque.cadastrar_produto(1, produto1);
+
     return 0;
 }

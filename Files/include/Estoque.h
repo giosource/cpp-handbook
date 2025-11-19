@@ -4,6 +4,7 @@
 #include "Produto.h"
 #include <map>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
