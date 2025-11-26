@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "include/RangeErrorCustom.h"
 #include "include/Produto.h"
 #include "include/Estoque.h"
 
@@ -16,5 +17,11 @@ int main() {
     // em arquivo
     estoque.cadastrar_produto(1, produto1);
 
+    // tratamento
+    try {
+        produto1.setQuantidade(-1);
+    } catch (const RangeErrorCustom& e) {
+        cerr << "ERRO: " << e.what() << '\n';
+    }
     return 0;
 }

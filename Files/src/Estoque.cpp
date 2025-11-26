@@ -25,10 +25,10 @@ void Estoque::cadastrar_produto(int id, Produto produto) {
     ofstream arquivo("produtos.txt");
     if (arquivo.is_open()) {
         for (const auto& par : produtos) {
-            arquivo << par.first << endl;
-            arquivo << par.second.getNome() << endl;
-            arquivo << par.second.getPreco() << endl;
-            arquivo << par.second.getQuantidade() << endl;
+            arquivo << "ID: " << par.first << endl;
+            arquivo << "NOME: " << par.second.getNome() << endl;
+            arquivo << "PRECO: "<< par.second.getPreco() << endl;
+            arquivo << "QUANTIDADE: "<< par.second.getQuantidade() << "\n\n";
         } 
         arquivo.close();
     } else

@@ -1,3 +1,4 @@
+#include "../include/RangeErrorCustom.h"
 #include "../include/Produto.h"
 #include <iostream>
 
@@ -18,4 +19,9 @@ double Produto::getPreco() const { return preco; };
 void Produto::setPreco(double v) { preco = v; };
 
 int Produto::getQuantidade() const { return quantidade; };
-void Produto::setQuantidade(int v) { quantidade = v; };
+void Produto::setQuantidade(int v) { 
+    if (v >= 0)
+        quantidade = v;
+    else
+        throw RangeErrorCustom("ESTOQUE NÃO PODE SER MENOR QUE 0");
+};
